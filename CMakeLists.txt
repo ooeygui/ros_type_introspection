@@ -12,7 +12,9 @@ find_package(catkin REQUIRED COMPONENTS
 )
 
 # Build flags
+if (NOT MSVC)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 ")
+endif()
 
 ###################################
 ## catkin specific configuration ##
@@ -47,8 +49,7 @@ include_directories(
 )
 
 ## Declare a C++ library
- add_library(ros_type_introspection
-
+add_library(ros_type_introspection
    src/ros_type.cpp
    src/ros_field.cpp
    src/stringtree_leaf.cpp
